@@ -19,13 +19,15 @@
   "description": "Projet DevOps 1 : Bowling Kata",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "cz",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "code:fix": "prettier --write . && eslint . --fix"
+    "code:fix": "prettier --write . && eslint . --fix",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -36,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/cdhaeyere/devops-prj-01-tdd-bowling-kata/issues"
   },
-  "homepage": "https://github.com/cdhaeyere/devops-prj-01-tdd-bowling-kata#readme"
+  "homepage": "https://github.com/cdhaeyere/devops-prj-01-tdd-bowling-kata#readme",
+  "dependencies": {
+    "jest": "^29.3.1"
+  }
 }
