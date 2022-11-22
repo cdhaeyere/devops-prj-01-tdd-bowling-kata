@@ -16,7 +16,12 @@ class Game {
 
             let frameScore = this.rollsTable[rollIndex] + this.rollsTable[rollIndex+1] 
             
-            score += frameScore;
+            if (frameScore === 10) {
+                score += 10 + this.rollsTable[rollIndex+2];
+            } else {
+                score += frameScore;
+            }
+
             rollIndex+=2
         }
 
