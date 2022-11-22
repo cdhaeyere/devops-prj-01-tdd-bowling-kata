@@ -15,7 +15,7 @@ class Game {
         for (let frameIndex=0;frameIndex<10;frameIndex++){ 
 
             if (this.rollsTable[rollIndex] === 10) {
-                score += 10+this.rollsTable[rollIndex+1]+this.rollsTable[rollIndex+2]; 
+                score += this.strikeBonus(rollIndex);
                 rollIndex++;
                 continue;
             }
@@ -40,6 +40,10 @@ class Game {
 
     spareBonus(rollIndex){
         return 10 + this.rolls[rollIndex+2];
+    }
+
+    strikeBonus(rollIndex){
+        return 10+this.rolls[rollIndex+1]+this.rolls[rollIndex+2];
     }
 }
 
