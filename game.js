@@ -35,15 +35,15 @@ class Game {
     }
 
     sumFrame(rollIndex){
-        return this.rolls[rollIndex] + this.rolls[rollIndex+1];
+        return this.rollsTable[rollIndex] + this.rollsTable[rollIndex+1];
     }
 
     spareBonus(rollIndex){
-        return 10 + this.rolls[rollIndex+2];
+        return 10 + this.rollsTable[rollIndex+2];
     }
 
     strikeBonus(rollIndex){
-        return 10+this.rolls[rollIndex+1]+this.rolls[rollIndex+2];
+        return 10+this.rollsTable[rollIndex+1]+this.rollsTable[rollIndex+2];
     }
 
     isSpare(frameScore){
@@ -51,7 +51,7 @@ class Game {
     }
 
     isStrike(rollIndex){
-        return this.rolls[rollIndex]===10;
+        return this.rollsTable[rollIndex]===10;
     }
 }
 
