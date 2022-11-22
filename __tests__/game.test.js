@@ -30,6 +30,10 @@ describe('Test game class', () => {
         rollMany(17, 0);
         expect(game.score).toEqual(14);
     });
+    test('max score is 300', () => {
+        rollMany(1000000, 10);
+        expect(game.score).toEqual(300);
+    });
 });
 
 function rollMany(rolls, pins){
