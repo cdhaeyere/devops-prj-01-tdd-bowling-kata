@@ -1,0 +1,40 @@
+{
+  "devDependencies": {
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.28.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "2.7.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "name": "devops-prj-01-tdd-bowling-kata",
+  "version": "1.0.0",
+  "description": "Projet DevOps 1 : Bowling Kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "cz",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "code:fix": "prettier --write . && eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdhaeyere/devops-prj-01-tdd-bowling-kata.git"
+  },
+  "author": "De Sa Adegas Miguel - D'haeyere Corentin - Subbota Iuliana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdhaeyere/devops-prj-01-tdd-bowling-kata/issues"
+  },
+  "homepage": "https://github.com/cdhaeyere/devops-prj-01-tdd-bowling-kata#readme"
+}
