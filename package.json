@@ -2,6 +2,11 @@
   "devDependencies": {
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.28.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1",
     "prettier": "2.7.1"
   },
   "config": {
@@ -17,7 +22,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "cz",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ." 
+    "prettier:fix": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "code:fix": "prettier --write . && eslint . --fix"
   },
   "repository": {
     "type": "git",
