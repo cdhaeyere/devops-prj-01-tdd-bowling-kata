@@ -16,12 +16,23 @@ describe('Test game class', () => {
         rollMany(20, 1);
         expect(game.score).toEqual(20);
     });
-    it('handles a spare with correct bonus', () => {
+    test('handles a spare with correct bonus', () => {
         game.roll(5); 
         game.roll(5);
         game.roll(1);
         rollMany(17, 0);
         expect(game.score).toEqual(12);
+    });
+    test('handles a strike with correct bonus', () => {
+        game.roll(10);
+        game.roll(1);
+        game.roll(1);
+        rollMany(17, 0);
+        expect(game.score).toEqual(14);
+    });
+    test('max score is 300', () => {
+        rollMany(1000000, 10);
+        expect(game.score).toEqual(300);
     });
 });
 

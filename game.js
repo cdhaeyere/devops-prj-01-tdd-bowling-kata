@@ -12,7 +12,13 @@ class Game {
         let score = 0;
         let rollIndex = 0;
 
-        for(let frameIndex=0;frameIndex<10;frameIndex++){ 
+        for (let frameIndex=0;frameIndex<10;frameIndex++){ 
+
+            if (this.rollsTable[rollIndex] === 10) {
+                score += 10+this.rollsTable[rollIndex+1]+this.rollsTable[rollIndex+2]; 
+                rollIndex++;
+                continue;
+            }
 
             let frameScore = this.rollsTable[rollIndex] + this.rollsTable[rollIndex+1] 
             
