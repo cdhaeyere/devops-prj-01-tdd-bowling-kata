@@ -20,7 +20,7 @@ class Game {
                 continue;
             }
 
-            let frameScore = this.rollsTable[rollIndex] + this.rollsTable[rollIndex+1] 
+            let frameScore = this.sumFrame(rollIndex);
             
             if (frameScore === 10) {
                 score += 10 + this.rollsTable[rollIndex+2];
@@ -32,6 +32,10 @@ class Game {
         }
 
         return score;
+    }
+
+    sumFrame(rollIndex){
+        return this.rolls[rollIndex] + this.rolls[rollIndex+1];
     }
 }
 
