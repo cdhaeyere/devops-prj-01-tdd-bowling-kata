@@ -22,7 +22,7 @@ class Game {
 
             let frameScore = this.sumFrame(rollIndex);
             
-            if (frameScore === 10) {
+            if (this.isSpare(frameScore)) {
                 score += this.spareBonus(rollIndex);
             } else {
                 score += frameScore;
@@ -45,6 +45,11 @@ class Game {
     strikeBonus(rollIndex){
         return 10+this.rolls[rollIndex+1]+this.rolls[rollIndex+2];
     }
+
+    isSpare(frameScore){
+        return frameScore===10;
+    }
+
 }
 
 module.exports = Game;
