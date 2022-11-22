@@ -14,16 +14,16 @@ class Game {
 
         for (let frameIndex=0;frameIndex<10;frameIndex++){ 
 
-            if (this.rollsTable[rollIndex] === 10) {
-                score += 10+this.rollsTable[rollIndex+1]+this.rollsTable[rollIndex+2]; 
+            if (this.isStrike(rollIndex)) {
+                score += this.strikeBonus(rollIndex);
                 rollIndex++;
                 continue;
             }
 
-            let frameScore = this.rollsTable[rollIndex] + this.rollsTable[rollIndex+1] 
+            let frameScore = this.sumFrame(rollIndex);
             
-            if (frameScore === 10) {
-                score += 10 + this.rollsTable[rollIndex+2];
+            if (this.isSpare(frameScore)) {
+                score += this.spareBonus(rollIndex);
             } else {
                 score += frameScore;
             }
@@ -32,6 +32,26 @@ class Game {
         }
 
         return score;
+    }
+
+    sumFrame(rollIndex){
+        return this.rollsTable[rollIndex] + this.rollsTable[rollIndex+1];
+    }
+
+    spareBonus(rollIndex){
+        return 10 + this.rollsTable[rollIndex+2];
+    }
+
+    strikeBonus(rollIndex){
+        return 10+this.rollsTable[rollIndex+1]+this.rollsTable[rollIndex+2];
+    }
+
+    isSpare(frameScore){
+        return frameScore===10;
+    }
+
+    isStrike(rollIndex){
+        return this.rollsTable[rollIndex]===10;
     }
 }
 
