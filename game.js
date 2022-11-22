@@ -23,7 +23,7 @@ class Game {
             let frameScore = this.sumFrame(rollIndex);
             
             if (frameScore === 10) {
-                score += 10 + this.rollsTable[rollIndex+2];
+                score += this.spareBonus(rollIndex);
             } else {
                 score += frameScore;
             }
@@ -36,6 +36,10 @@ class Game {
 
     sumFrame(rollIndex){
         return this.rolls[rollIndex] + this.rolls[rollIndex+1];
+    }
+
+    spareBonus(rollIndex){
+        return 10 + this.rolls[rollIndex+2];
     }
 }
 
