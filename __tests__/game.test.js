@@ -45,7 +45,7 @@ describe('Test game class', () => {
     game.roll(10)
     game.roll(1)
     game.roll(1)
-    rollMany(17, 0)
+    rollMany(16, 0)
     expect(game.score).toEqual(14)
   })
 })
