@@ -1,58 +1,58 @@
 class Game {
+  constructor () {
+    this.rollsTable = []
+  }
 
-    constructor(){
-        this.rollsTable = [];
+  roll (numberOfPins) {
+    this.rollsTable.push(numberOfPins)
+  }
+
+  get score () {
+    let score = 0
+    let rollIndex = 0
+
+    for (let frameIndex = 0; frameIndex < 10; frameIndex++) {
+      if (this.isStrike(rollIndex)) {
+        score += this.strikeBonus(rollIndex)
+        rollIndex++
+        continue
+      }
+
+      const frameScore = this.sumFrame(rollIndex)
+
+      if (this.isSpare(frameScore)) {
+        score += this.spareBonus(rollIndex)
+      } else {
+        score += frameScore
+      }
+
+      rollIndex += 2
     }
 
-    roll (numberOfPins) {
-        this.rollsTable.push(numberOfPins);    
-    }
+    return score
+  }
 
-    get score () {
-        let score = 0;
-        let rollIndex = 0;
+  sumFrame (rollIndex) {
+    return this.rollsTable[rollIndex] + this.rollsTable[rollIndex + 1]
+  }
 
-        for (let frameIndex=0;frameIndex<10;frameIndex++){ 
+  spareBonus (rollIndex) {
+    return 10 + this.rollsTable[rollIndex + 2]
+  }
 
-            if (this.isStrike(rollIndex)) {
-                score += this.strikeBonus(rollIndex);
-                rollIndex++;
-                continue;
-            }
+  strikeBonus (rollIndex) {
+    return (
+      10 + this.rollsTable[rollIndex + 1] + this.rollsTable[rollIndex + 2]
+    )
+  }
 
-            let frameScore = this.sumFrame(rollIndex);
-            
-            if (this.isSpare(frameScore)) {
-                score += this.spareBonus(rollIndex);
-            } else {
-                score += frameScore;
-            }
+  isSpare (frameScore) {
+    return frameScore === 10
+  }
 
-            rollIndex+=2
-        }
-
-        return score;
-    }
-
-    sumFrame (rollIndex) {
-        return this.rollsTable[rollIndex] + this.rollsTable[rollIndex + 1];
-    }
-
-    spareBonus (rollIndex) {
-        return 10 + this.rollsTable[rollIndex + 2];
-    }
-
-    strikeBonus (rollIndex) {
-        return 10 + this.rollsTable[rollIndex + 1] + this.rollsTable[rollIndex + 2];
-    }
-
-    isSpare (frameScore) {
-        return frameScore === 10;
-    }
-
-    isStrike (rollIndex) {
-        return this.rollsTable[rollIndex] === 10;
-    }
+  isStrike (rollIndex) {
+    return this.rollsTable[rollIndex] === 10
+  }
 }
 
-module.exports = Game;
+module.exports = Game
