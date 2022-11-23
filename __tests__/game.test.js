@@ -42,6 +42,12 @@ describe('Test game class', () => {
     game.roll(1)
     expect(game.score).toEqual(16)
   })
+  test('example scenario number 2', () => {
+    game.roll(10)
+    game.roll(1)
+    game.roll(1)
+    expect(game.score).toEqual(14)
+  })
 })
 
 function rollMany (rolls, pins) {
