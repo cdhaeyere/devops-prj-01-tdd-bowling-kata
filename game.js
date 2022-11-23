@@ -8,7 +8,7 @@ class Game {
         this.rollsTable.push(numberOfPins);    
     }
 
-    get score(){
+    get score () {
         let score = 0;
         let rollIndex = 0;
 
@@ -34,24 +34,24 @@ class Game {
         return score;
     }
 
-    sumFrame(rollIndex){
-        return this.rollsTable[rollIndex] + this.rollsTable[rollIndex+1];
+    sumFrame (rollIndex) {
+        return this.rollsTable[rollIndex] + this.rollsTable[rollIndex + 1];
     }
 
-    spareBonus(rollIndex){
-        return 10 + this.rollsTable[rollIndex+2];
+    spareBonus (rollIndex) {
+        return 10 + this.rollsTable[rollIndex + 2];
     }
 
-    strikeBonus(rollIndex){
-        return 10+this.rollsTable[rollIndex+1]+this.rollsTable[rollIndex+2];
+    strikeBonus (rollIndex) {
+        return 10 + this.rollsTable[rollIndex + 1] + this.rollsTable[rollIndex + 2];
     }
 
-    isSpare(frameScore){
-        return frameScore===10;
+    isSpare (frameScore) {
+        return frameScore === 10;
     }
 
-    isStrike(rollIndex){
-        return this.rollsTable[rollIndex]===10;
+    isStrike (rollIndex) {
+        return this.rollsTable[rollIndex] === 10;
     }
 }
 
